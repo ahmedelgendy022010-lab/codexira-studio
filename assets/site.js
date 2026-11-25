@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       overlay.querySelector('.project-dialog-image').src=p.img;
       overlay.querySelector('.project-dialog-image').alt=p.name+' screenshot';
       overlay.querySelector('.project-dialog-kicker').textContent=currentLanguage==='ar'?(mode==='about'?'عن المشروع':'معرض لقطات الشاشة'):(mode==='about'?'Project profile':'Screenshot gallery');
-      overlay.querySelector('h2').textContent=p.name;
+      overlay.querySelector('h2').textContent=p.name;overlay.querySelector('h2').dir='ltr';overlay.querySelector('h2').style.textAlign='left';
       overlay.querySelector('.project-dialog-copy p').textContent=currentLanguage==='ar'?(translations[p.desc]||p.desc):p.desc;
       overlay.querySelector('.project-dialog-count').textContent=currentLanguage==='ar'?'أحدث لقطة شاشة متاحة':'Latest available screenshot';
       overlay.classList.add('open');
