@@ -56,7 +56,7 @@ const translations={
 };
 const root=document.documentElement;
 const nav=document.querySelector('.nav');
-if(nav&&!nav.querySelector('.nav-tools')){const tools=document.createElement('div');tools.className='nav-tools';tools.innerHTML='<button class="utility-btn" id="language-toggle" type="button" aria-label="Switch language">عربي</button><button class="utility-btn" id="theme-toggle" type="button" aria-label="Toggle color theme"><span class="utility-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button>';nav.querySelector('.brand')?.insertAdjacentElement('afterend',tools);}
+if(nav&&!nav.querySelector('.nav-tools')){const tools=document.createElement('div');tools.className='nav-tools';tools.innerHTML='<button class="utility-btn" id="language-toggle" type="button" aria-label="Switch language">عربي</button><button class="utility-btn" id="theme-toggle" type="button" aria-label="Toggle color theme"><span class="utility-icon" aria-hidden="true">☾</span><span class="theme-label">Light</span></button>';nav.querySelector('.brand')?.insertAdjacentElement('afterend',tools);}
 const langButton=document.querySelector('#language-toggle'),themeButton=document.querySelector('#theme-toggle');
 const originalNodes=[];
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
