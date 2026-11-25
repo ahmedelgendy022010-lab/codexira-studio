@@ -56,17 +56,17 @@ const translations={
 };
 const root=document.documentElement;
 const nav=document.querySelector('.nav');
-if(nav&&!nav.querySelector('.nav-tools')){const tools=document.createElement('div');tools.className='nav-tools';tools.innerHTML='<button class="utility-btn" id="language-toggle" type="button" aria-label="Switch language">عربي</button><button class="utility-btn" id="theme-toggle" type="button" aria-label="Toggle color theme"><span class="utility-icon" aria-hidden="true">☾</span><span class="theme-label">Light</span></button>';nav.querySelector('.brand')?.insertAdjacentElement('afterend',tools);}
+
 const langButton=document.querySelector('#language-toggle'),themeButton=document.querySelector('#theme-toggle');
 const originalNodes=[];
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
 while(walker.nextNode()){const n=walker.currentNode;if(n.nodeValue.trim())originalNodes.push({node:n,value:n.nodeValue});}
 let language=localStorage.getItem('codexira-language')||'en';
 let theme=localStorage.getItem('codexira-theme')||'dark';
-function applyLanguage(next){language=next;root.lang=next;root.dir=next==='ar'?'rtl':'ltr';document.title=next==='ar'?'كودكسيرا ستوديو — نصمّم تجارب رقمية':document.querySelector('meta[property="og:title"]')?.content||'Codexira Studio — We Engineer Digital Experiences';originalNodes.forEach(({node,value})=>{const key=value.trim();if(next==='ar'&&translations[key])node.nodeValue=value.replace(key,translations[key]);else if(next==='en')node.nodeValue=value;});if(langButton)langButton.textContent=next==='ar'?'EN':'عربي';localStorage.setItem('codexira-language',next);}
+function applyLanguage(next){language=next;root.lang=next;root.dir=next==='ar'?'rtl':'ltr';document.title=next==='ar'?'كودكسيرا ستوديو — نصمّم تجارب رقمية':document.querySelector('meta[property="og:title"]')?.content||'Codexira Studio — We Engineer Digital Experiences';originalNodes.forEach(({node,value})=>{const key=value.trim();if(next==='ar'&&translations[key])node.nodeValue=value.replace(key,translations[key]);else if(next==='en')node.nodeValue=value;});if(langButton)langButton.textContent=next==='ar'?'English':'Arabic';localStorage.setItem('codexira-language',next);}
 function applyTheme(next){theme=next;root.dataset.theme=next;if(themeButton){themeButton.querySelector('.utility-icon').textContent=next==='dark'?'☼':'☾';themeButton.querySelector('.theme-label').textContent=next==='dark'?'Light':'Dark';}localStorage.setItem('codexira-theme',next);}
-langButton?.addEventListener('click',()=>applyLanguage(language==='en'?'ar':'en'));
-themeButton?.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
+if(langButton){langButton.type='button';langButton.addEventListener('click',()=>applyLanguage(root.lang==='ar'?'en':'ar'));}
+if(themeButton){themeButton.type='button';themeButton.addEventListener('click',()=>applyTheme(root.dataset.theme==='dark'?'light':'dark'));}
 applyTheme(theme);applyLanguage(language);
 const attributeTranslations={"Open navigation":"فتح القائمة","Close navigation":"إغلاق القائمة","Your name":"اسمك","How should we address you?":"بماذا نناديك؟","Email address":"البريد الإلكتروني","you@example.com":"you@example.com","Enter your budget (e.g. $800 or EGP 25,000)":"اكتب ميزانيتك (مثال: 800 دولار أو 25,000 جنيه)","What can we help you build?":"ما الذي تريد أن نبنيه لك؟","Prefer not to say":"أفضل عدم التحديد","A little about your project":"نبذة عن مشروعك","Tell us about your business, your goals, and what you’d like the website to do...":"أخبرنا عن نشاطك وأهدافك وما الذي تريد من الموقع أن يحققه..."};
 function translateAttributes(){document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>['placeholder','aria-label','title'].forEach(attr=>{const val=el.getAttribute(attr);if(!val)return;if(language==='ar'&&attributeTranslations[val]){if(!el.dataset['original'+attr])el.dataset['original'+attr]=val;el.setAttribute(attr,attributeTranslations[val]);}else if(language==='en'&&el.dataset['original'+attr])el.setAttribute(attr,el.dataset['original'+attr]);}));}
