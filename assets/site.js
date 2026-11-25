@@ -68,6 +68,11 @@ function applyTheme(next){theme=next;root.dataset.theme=next;if(themeButton){the
 langButton?.addEventListener('click',()=>applyLanguage(language==='en'?'ar':'en'));
 themeButton?.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
 applyTheme(theme);applyLanguage(language);
+const attributeTranslations={"Open navigation":"فتح القائمة","Close navigation":"إغلاق القائمة","Your name":"اسمك","How should we address you?":"بماذا نناديك؟","Email address":"البريد الإلكتروني","you@example.com":"you@example.com","What can we help you build?":"ما الذي تريد أن نبنيه لك؟","Prefer not to say":"أفضل عدم التحديد","A little about your project":"نبذة عن مشروعك","Tell us about your business, your goals, and what you’d like the website to do...":"أخبرنا عن نشاطك وأهدافك وما الذي تريد من الموقع أن يحققه..."};
+function translateAttributes(){document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>['placeholder','aria-label','title'].forEach(attr=>{const val=el.getAttribute(attr);if(!val)return;if(language==='ar'&&attributeTranslations[val]){if(!el.dataset['original'+attr])el.dataset['original'+attr]=val;el.setAttribute(attr,attributeTranslations[val]);}else if(language==='en'&&el.dataset['original'+attr])el.setAttribute(attr,el.dataset['original'+attr]);}));}
+const applyLanguageBase=applyLanguage;
+applyLanguage=function(next){applyLanguageBase(next);translateAttributes();};
+translateAttributes();
 const revealTargets=document.querySelectorAll('.hero-grid > div,.section-head,.work-card,.service,.step,.project-card,.content-two > *,.panel,.cta-panel,.build-shell,.page-hero .wrap');
 revealTargets.forEach((el,i)=>{el.classList.add('reveal');if(i%4)el.dataset.delay=String(i%4);});
 if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});revealTargets.forEach(el=>observer.observe(el));}else revealTargets.forEach(el=>el.classList.add('is-visible'));
