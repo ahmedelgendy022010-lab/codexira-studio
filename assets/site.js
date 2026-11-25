@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 };
   const langBtn=document.getElementById('language-toggle');
   const themeBtn=document.getElementById('theme-toggle');
-  let currentLanguage=localStorage.getItem('codexira-language')||'en';
+  let currentLanguage='en';
+  try{currentLanguage=localStorage.getItem('codexira-language')||'en';}catch(error){console.warn('[Codexira] Language preference unavailable',error);}
   const attrMap={"Open navigation":"فتح القائمة","Close navigation":"إغلاق القائمة","Your name":"اسمك","How should we address you?":"بماذا نناديك؟","Email address":"البريد الإلكتروني","What can we help you build?":"ما الذي تريد أن نبنيه لك؟","A little about your project":"نبذة عن مشروعك","Tell us about your business, your goals, and what you’d like the website to do...":"أخبرنا عن نشاطك وأهدافك وما الذي تريد من الموقع أن يحققه...","Enter your budget (e.g. $800 or EGP 25,000)":"اكتب ميزانيتك (مثال: 800 دولار أو 25,000 جنيه)"};
   function setLanguage(lang){
     currentLanguage=lang;
@@ -92,7 +93,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   function setTheme(theme){
     root.dataset.theme=theme;
     if(themeBtn){const icon=themeBtn.querySelector('.utility-icon'),label=themeBtn.querySelector('.theme-label');if(icon)icon.textContent=theme==='dark'?'☼':'☾';if(label)label.textContent=theme==='dark'?'Light':'Dark';}
-    localStorage.setItem('codexira-theme',theme);
+    try{localStorage.setItem('codexira-theme',theme);}catch(error){console.warn('[Codexira] Theme preference could not be saved',error);}
   }
   if(langBtn)langBtn.addEventListener('click',()=>setLanguage(root.lang==='ar'?'en':'ar'));
   if(themeBtn)themeBtn.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
@@ -101,29 +102,61 @@ document.addEventListener('DOMContentLoaded',()=>{
   const menu=document.querySelector('.menu-toggle'),links=document.querySelector('.nav-links');
   if(menu&&links)menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
   const projects=[{"name":"Learnweave","tag":"Education platform","desc":"A full education platform for IGCSE and American Diploma programs, with courses, faculty profiles, testimonials, media gallery and trial lesson booking.","img":"https://screenshot2.lovable.dev/lovp_5n1x0kdtng8tbvr7tym31ezscm/87ee967a09512592a53adcfbcdbd234d_1791843262062.png"},{"name":"ATEN Archive","tag":"Device assembly & traceability","desc":"A device assembly and traceability system for managing supplier parts, serial numbers and automated QR-code generation.","img":"https://screenshot2.lovable.dev/lovp_13jq9ywn0x9yn98hng8ctjw248/1186fe35789935ebac110955f223f24f_1791140683728.png"},{"name":"Sahlala","tag":"Restaurant ordering system","desc":"A restaurant ordering experience with a menu, food categories, cart, checkout and order tracking.","img":"https://screenshot2.lovable.dev/lovp_5b8g9ac6zw99ery39wdm68x7bp/8f371133dd3fbd8e957538f6603a9ea0_1791223528072.png"},{"name":"Gendouzi Study Compass","tag":"Education · Productivity","desc":"A workbook-powered study planner with daily schedules, subject tracking, backlog management and progress dashboards.","img":"https://screenshot2.lovable.dev/lovp_5r8ca462kc83es1hshskdjbxkq/b7fd7496bfd624a3eaec9fc5b3092747_1795392774429.png"},{"name":"Notebook LM","tag":"AI research workspace","desc":"An AI-powered research workspace for organizing documents and asking questions grounded in uploaded sources, with cited answers.","img":"https://screenshot2.lovable.dev/lovp_4yqxfcgt209en8bn5qnqaa8feb/5dda428d8a398a46ccb5536d73b8a31d_1791145278507.png"},{"name":"Taleta Shemal","tag":"Music · Social app","desc":"A mobile-focused red-and-black music and social experience with Home, Store, Songs, Challenges and Profile areas.","img":"https://screenshot2.lovable.dev/lovp_59g65nrbfj90rtgszd37y65d6q/0a7144ebbf83ef8856e6886904c51cba_1791049850855.png"},{"name":"Gendouzi Study Planner","tag":"Education · Study planner","desc":"A focused daily and weekly planner for subjects, saved progress, backlog and daily review.","img":"https://screenshot2.lovable.dev/lovp_4pq3wm2vxg9t98ksdnwkfka42e/e039e3980f1ab6f67e0148b32a481a1f_1795393284682.png"},{"name":"Pixel Perfect Clone","tag":"Laboratory management","desc":"A role-based laboratory management system with staff workflows, database-backed records and a frosted-glass interface.","img":"https://screenshot2.lovable.dev/lovp_4h4csg1jx388b9nz1pd4q26qk3/4be1605e1f626c2d2e9d4b324718ab41_1792439649635.png"}];
-  if(document.querySelector('.project-gallery')){
-    const overlay=document.createElement('div');overlay.className='project-overlay';overlay.innerHTML='<div class="project-dialog"><button class="project-dialog-close" type="button" aria-label="Close">×</button><div class="project-dialog-inner"><img class="project-dialog-image" alt=""><div class="project-dialog-copy"><div class="project-dialog-kicker"></div><h2></h2><p></p><div class="project-dialog-count"></div></div></div></div>';document.body.appendChild(overlay);
-    const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';};overlay.setAttribute('aria-hidden','true');overlay.querySelector('.project-dialog-close').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-    function show(idx,mode){
-      const p=projects[idx];if(!p)return;
-      overlay.querySelector('.project-dialog-image').src=p.img;
-      overlay.querySelector('.project-dialog-image').alt=p.name+' screenshot';
-      overlay.querySelector('.project-dialog-kicker').textContent=currentLanguage==='ar'?(mode==='about'?'عن المشروع':'معرض لقطات الشاشة'):(mode==='about'?'Project profile':'Screenshot gallery');
-      overlay.querySelector('h2').textContent=p.name;overlay.querySelector('h2').dir='ltr';overlay.querySelector('h2').style.textAlign='left';
-      overlay.querySelector('.project-dialog-copy p').textContent=currentLanguage==='ar'?(translations[p.desc]||p.desc):p.desc;
-      overlay.querySelector('.project-dialog-count').textContent=currentLanguage==='ar'?'أحدث لقطة شاشة متاحة':'Latest available screenshot';
-      overlay.classList.add('open');
-      overlay.setAttribute('aria-hidden','false');
-      document.body.style.overflow='hidden';
+  // Project gallery: bind each control directly so a nested or replaced card cannot swallow clicks.
+  const projectGallery=document.querySelector('.project-gallery');
+  if(projectGallery){
+    try{
+      const overlay=document.createElement('div');
+      overlay.className='project-overlay';
+      overlay.setAttribute('aria-hidden','true');
+      overlay.innerHTML='<div class="project-dialog" role="dialog" aria-modal="true" aria-labelledby="project-dialog-title"><button class="project-dialog-close" type="button" aria-label="Close">×</button><div class="project-dialog-inner"><img class="project-dialog-image" alt=""><div class="project-dialog-copy"><div class="project-dialog-kicker"></div><h2 id="project-dialog-title"></h2><p></p><div class="project-dialog-count"></div></div></div></div>';
+      document.body.appendChild(overlay);
+      const closeButton=overlay.querySelector('.project-dialog-close');
+      const closeProject=()=>{
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow='';
+      };
+      const showProject=(idx,mode)=>{
+        const project=projects[idx];
+        if(!project){console.error('[Codexira] Project not found:',idx);return;}
+        const image=overlay.querySelector('.project-dialog-image');
+        image.src=project.img;
+        image.alt=project.name+' screenshot';
+        const kicker=overlay.querySelector('.project-dialog-kicker');
+        kicker.textContent=currentLanguage==='ar'?(mode==='about'?'عن المشروع':'معرض لقطات الشاشة'):(mode==='about'?'Project profile':'Screenshot gallery');
+        const heading=overlay.querySelector('#project-dialog-title');
+        heading.textContent=project.name;
+        heading.dir='ltr';
+        heading.style.textAlign='left';
+        overlay.querySelector('.project-dialog-copy p').textContent=currentLanguage==='ar'?(translations[project.desc]||project.desc):project.desc;
+        overlay.querySelector('.project-dialog-count').textContent=currentLanguage==='ar'?'أحدث لقطة شاشة متاحة':'Latest available screenshot';
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+      };
+      projectGallery.querySelectorAll('[data-about]').forEach(button=>{
+        button.addEventListener('click',event=>{
+          event.preventDefault();
+          event.stopPropagation();
+          showProject(Number(button.dataset.about),'about');
+        });
+      });
+      projectGallery.querySelectorAll('[data-gallery]').forEach(button=>{
+        button.addEventListener('click',event=>{
+          event.preventDefault();
+          event.stopPropagation();
+          showProject(Number(button.dataset.gallery),'gallery');
+        });
+      });
+      closeButton.addEventListener('click',closeProject);
+      overlay.addEventListener('click',event=>{if(event.target===overlay)closeProject();});
+      document.addEventListener('keydown',event=>{if(event.key==='Escape'&&overlay.classList.contains('open'))closeProject();});
+      window.__codexiraProjectGalleryReady=true;
+    }catch(error){
+      console.error('[Codexira] Project gallery initialization failed:',error);
     }
-    const gallery=document.querySelector('.project-gallery');
-    if(gallery)gallery.addEventListener('click',event=>{
-      const about=event.target.closest('[data-about]');
-      const screenshots=event.target.closest('[data-gallery]');
-      if(about)show(Number(about.dataset.about),'about');
-      else if(screenshots)show(Number(screenshots.dataset.gallery),'gallery');
-    });
-      }
+  }
   const form=document.getElementById('contact-form');
   if(form)form.addEventListener('submit',e=>{
     e.preventDefault();if(!form.reportValidity())return;
