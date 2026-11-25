@@ -97,7 +97,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
   if(langBtn)langBtn.addEventListener('click',()=>setLanguage(root.lang==='ar'?'en':'ar'));
   if(themeBtn)themeBtn.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
-  setTheme(localStorage.getItem('codexira-theme')||'dark');
+  let savedTheme='dark';
+  try{savedTheme=localStorage.getItem('codexira-theme')||'dark';}
+  catch(error){console.warn('[Codexira] Theme preference unavailable; using default theme.',error);}
+  setTheme(savedTheme);
   setLanguage(currentLanguage);
   const menu=document.querySelector('.menu-toggle'),links=document.querySelector('.nav-links');
   if(menu&&links)menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
