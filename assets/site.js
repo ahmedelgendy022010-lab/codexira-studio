@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded',()=>{
       node.nodeValue=lang==='ar'&&translations[key]?original.replace(key,translations[key]):original;
     }
     document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>['placeholder','aria-label','title'].forEach(a=>{
-      const dataKey='en'+a;
-      if(!el.dataset[dataKey])el.dataset[dataKey]=el.getAttribute(a)||'';
-      const original=el.dataset[dataKey];
+      const dataKey='data-codexira-original-'+a;
+      if(!el.hasAttribute(dataKey))el.setAttribute(dataKey,el.getAttribute(a)||'');
+      const original=el.getAttribute(dataKey)||'';
       if(lang==='ar'&&attrMap[original])el.setAttribute(a,attrMap[original]);
       else if(lang==='en'&&original)el.setAttribute(a,original);
     }));
