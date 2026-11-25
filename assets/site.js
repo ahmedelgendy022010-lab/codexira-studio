@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const translations={
 "About Project":"عن المشروع","View screenshots":"عرض لقطات الشاشة","Screenshot gallery":"معرض لقطات الشاشة","Project profile":"بطاقة تعريف المشروع","Screenshot 1 of 1 · Latest capture currently available":"لقطة الشاشة المتاحة حاليًا","Explore all projects and screenshots ↗":"استكشف كل المشاريع ولقطات الشاشة ↗","Home":"الرئيسية","About":"من نحن","Services":"خدماتنا","Portfolio":"أعمالنا","Contact":"تواصل معنا","Start a project ↗":"ابدأ مشروعك ↗","Digital experiences":"تجارب رقمية",
 "Dream · Design · Develop":"احلم · صمّم · طوّر","We engineer":"نصمّم ونطوّر","experiences.":"تجارب.","Ideas deserve more than just a place online. They deserve a digital experience that makes an impact. We build thoughtful, modern websites that help businesses move forward.":"الأفكار تستحق أكثر من مجرد مكان على الإنترنت. تستحق تجربة رقمية تترك أثرًا. نصمّم مواقع عصرية ومدروسة تساعد أعمالك على التقدّم.",
-"Let’s build together":"يلا نبني حاجة سوا","Explore our work":"استكشف أعمالنا","Independent web development studio · Based in Egypt · Working worldwide":"استوديو مستقل لتطوير الويب · من مصر إلى العالم",
+"Let’s build together":"خلّينا نبني حاجة سوا","Let’s build":"خلّينا نبني","Explore our work":"استكشف أعمالنا","Independent web development studio · Based in Egypt · Working worldwide":"استوديو مستقل لتطوير الويب · من مصر إلى العالم",
 "CODEXIRA / DIGITAL STUDIO":"كودكسيرا / استوديو رقمي","Your next idea,":"فكرتك القادمة،","beautifully built.":"ننّفذها بإبداع.","digital":"رقمية","Light":"فاتح","Dark":"داكن","Digital experiences designed to make your business clearer, stronger and easier to discover.":"تجارب رقمية تجعل نشاطك أوضح وأقوى وأسهل في الوصول إليه.",
 "✦ Design that feels considered":"✦ تصميم بكل عناية","⌘ Built for every screen":"⌘ مناسب لكل الشاشات",
 "Selected projects":"مشاريع مختارة","A closer look at":"نظرة أقرب على","what we create.":"ما نصنعه.","Explore selected projects and interface previews. Each one shows a different way thoughtful design can solve a real-world problem.":"استكشف مجموعة من المشاريع ومعاينات الواجهات. كل مشروع يوضح كيف يمكن للتصميم المدروس حل مشكلة حقيقية.",
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 "Website Redesign":"إعادة تصميم المواقع","Improve the look, structure, usability and responsive behavior of an existing website.":"تحسين مظهر الموقع الحالي وهيكله وسهولة استخدامه واستجابته.",
 "Responsive Web Design":"تصميم ويب متجاوب","Carefully adapted layouts that work across mobile, tablet and desktop screens.":"تصميمات مدروسة تعمل على الهاتف والتابلت والكمبيوتر.",
 "Not sure what you need?":"مش متأكد محتاج إيه؟","Let’s find the right":"دعنا نحدد","starting point.":"نقطة البداية المناسبة.","Share your idea, your audience and what you want your website to achieve. We’ll help you define a sensible scope.":"شاركنا فكرتك وجمهورك والهدف من موقعك، وسنساعدك في تحديد نطاق مناسب للمشروع.",
-"Discuss your project ↗":"ناقش مشروعك ↗","A collection of":"مجموعة من","digital explorations.":"التجارب الرقمية.","Explore a selection of interfaces and digital product experiences. Project links open previews; they are not presented as live client services.":"استكشف مجموعة من الواجهات والتجارب الرقمية. الروابط تفتح معاينات للمشاريع وليست خدمات تشغيلية مباشرة.",
+"Discuss your project ↗":"ناقش مشروعك ↗","A collection of":"مجموعة من","digital explorations.":"المشاريع الرقمية.","Explore a selection of interfaces and digital product experiences. Project links open previews; they are not presented as live client services.":"استكشف مجموعة من الواجهات والتجارب الرقمية. الروابط تفتح معاينات للمشاريع وليست خدمات تشغيلية مباشرة.",
 "Selected work · Built projects":"أعمال مختارة · مشاريع منفذة","Gendouzi Study Compass":"مخطط جندوزي الدراسي","A workbook-powered study planner with daily schedules, subject tracking, backlog management and progress dashboards.":"مخطط مذاكرة لتنظيم اليوم والمواد والتراكمات ومتابعة التقدم.",
 "Learnweave":"Learnweave","An education platform preview for exploring programs, faculty profiles and learning options.":"معاينة لمنصة تعليمية لاستكشاف البرامج وأعضاء هيئة التدريس وخيارات التعلم.",
-"Sahlala Restaurant":"مطعم سهلًا","A restaurant experience concept with a clear menu, food categories and a simple browsing journey.":"تصوّر لتجربة مطعم بقائمة واضحة وتصنيفات طعام وتصفح بسيط.",
+"Sahlala Restaurant":"Sahlala Restaurant","A restaurant experience concept with a clear menu, food categories and a simple browsing journey.":"تصوّر لتجربة مطعم بقائمة واضحة وتصنيفات طعام وتصفح بسيط.",
 "Notebook LM":"Notebook LM","An AI research workspace where users organize documents and ask questions grounded in their own sources, with cited answers.":"مساحة بحث بالذكاء الاصطناعي لتنظيم المستندات وطرح أسئلة بإجابات مرتبطة بالمصادر.",
 "Your Web Creator":"Your Web Creator","A device assembly and traceability tool for supplier parts, serial numbers and automated QR-code generation.":"أداة لتجميع الأجهزة وتتبع المكونات وأرقامها التسلسلية وإنشاء QR تلقائيًا.",
 "Taleta Shemal":"تالتة شمال","A red-and-black music and social experience with music discovery, store, challenges and profile areas.":"تجربة موسيقية واجتماعية بالأحمر والأسود تضم اكتشاف الأغاني ومتجرًا وتحديات وملفات شخصية.",
@@ -54,17 +54,30 @@ document.addEventListener('DOMContentLoaded',()=>{
 };
   const langBtn=document.getElementById('language-toggle');
   const themeBtn=document.getElementById('theme-toggle');
-  const textNodes=[];
-  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
-  while(walker.nextNode()){const n=walker.currentNode;if(n.nodeValue.trim())textNodes.push({node:n,original:n.nodeValue});}
+  let currentLanguage=localStorage.getItem('codexira-language')||'en';
   const attrMap={"Open navigation":"فتح القائمة","Close navigation":"إغلاق القائمة","Your name":"اسمك","How should we address you?":"بماذا نناديك؟","Email address":"البريد الإلكتروني","What can we help you build?":"ما الذي تريد أن نبنيه لك؟","A little about your project":"نبذة عن مشروعك","Tell us about your business, your goals, and what you’d like the website to do...":"أخبرنا عن نشاطك وأهدافك وما الذي تريد من الموقع أن يحققه...","Enter your budget (e.g. $800 or EGP 25,000)":"اكتب ميزانيتك (مثال: 800 دولار أو 25,000 جنيه)"};
   function setLanguage(lang){
+    currentLanguage=lang;
     root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';
-    textNodes.forEach(({node,original})=>{const key=original.trim();node.nodeValue=lang==='ar'&&translations[key]?original.replace(key,translations[key]):original;});
-    document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>['placeholder','aria-label','title'].forEach(a=>{const original=el.dataset['en'+a]||el.getAttribute(a);if(!el.dataset['en'+a])el.dataset['en'+a]=original;if(lang==='ar'&&attrMap[original])el.setAttribute(a,attrMap[original]);else if(lang==='en')el.setAttribute(a,original);}));
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    while(walker.nextNode()){
+      const node=walker.currentNode;
+      if(!node.nodeValue.trim())continue;
+      if(node.__codexiraOriginalText===undefined)node.__codexiraOriginalText=node.nodeValue;
+      const original=node.__codexiraOriginalText;
+      const key=original.trim();
+      node.nodeValue=lang==='ar'&&translations[key]?original.replace(key,translations[key]):original;
+    }
+    document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>['placeholder','aria-label','title'].forEach(a=>{
+      const dataKey='en'+a;
+      if(!el.dataset[dataKey])el.dataset[dataKey]=el.getAttribute(a)||'';
+      const original=el.dataset[dataKey];
+      if(lang==='ar'&&attrMap[original])el.setAttribute(a,attrMap[original]);
+      else if(lang==='en'&&original)el.setAttribute(a,original);
+    }));
     if(langBtn)langBtn.textContent=lang==='ar'?'English':'Arabic';
-    document.title=lang==='ar'?'كودكسيرا ستوديو — نصمّم تجارب رقمية':'Codexira Studio — We Engineer Digital Experiences';
-    localStorage.setItem('codexira-language',lang);
+    document.title=lang==='ar'?'كودكسيرا ستوديو — تجارب رقمية تصنع فرقًا':'Codexira Studio — We Engineer Digital Experiences';
+    try{localStorage.setItem('codexira-language',lang);}catch(error){console.warn('Could not persist language preference',error);}
   }
   function setTheme(theme){
     root.dataset.theme=theme;
@@ -74,16 +87,33 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(langBtn)langBtn.addEventListener('click',()=>setLanguage(root.lang==='ar'?'en':'ar'));
   if(themeBtn)themeBtn.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
   setTheme(localStorage.getItem('codexira-theme')||'dark');
-  setLanguage(localStorage.getItem('codexira-language')||'en');
+  setLanguage(currentLanguage);
   const menu=document.querySelector('.menu-toggle'),links=document.querySelector('.nav-links');
   if(menu&&links)menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
   const projects=[{"name":"Learnweave","tag":"Education platform","desc":"A full education platform for IGCSE and American Diploma programs, with courses, faculty profiles, testimonials, media gallery and trial lesson booking.","img":"https://screenshot2.lovable.dev/lovp_5n1x0kdtng8tbvr7tym31ezscm/87ee967a09512592a53adcfbcdbd234d_1791843262062.png"},{"name":"ATEN Archive","tag":"Device assembly & traceability","desc":"A device assembly and traceability system for managing supplier parts, serial numbers and automated QR-code generation.","img":"https://screenshot2.lovable.dev/lovp_13jq9ywn0x9yn98hng8ctjw248/1186fe35789935ebac110955f223f24f_1791140683728.png"},{"name":"Sahlala","tag":"Restaurant ordering system","desc":"A restaurant ordering experience with a menu, food categories, cart, checkout and order tracking.","img":"https://screenshot2.lovable.dev/lovp_5b8g9ac6zw99ery39wdm68x7bp/8f371133dd3fbd8e957538f6603a9ea0_1791223528072.png"},{"name":"Gendouzi Study Compass","tag":"Education · Productivity","desc":"A workbook-powered study planner with daily schedules, subject tracking, backlog management and progress dashboards.","img":"https://screenshot2.lovable.dev/lovp_5r8ca462kc83es1hshskdjbxkq/b7fd7496bfd624a3eaec9fc5b3092747_1795392774429.png"},{"name":"Notebook LM","tag":"AI research workspace","desc":"An AI-powered research workspace for organizing documents and asking questions grounded in uploaded sources, with cited answers.","img":"https://screenshot2.lovable.dev/lovp_4yqxfcgt209en8bn5qnqaa8feb/5dda428d8a398a46ccb5536d73b8a31d_1791145278507.png"},{"name":"Taleta Shemal","tag":"Music · Social app","desc":"A mobile-focused red-and-black music and social experience with Home, Store, Songs, Challenges and Profile areas.","img":"https://screenshot2.lovable.dev/lovp_59g65nrbfj90rtgszd37y65d6q/0a7144ebbf83ef8856e6886904c51cba_1791049850855.png"},{"name":"Gendouzi Study Planner","tag":"Education · Study planner","desc":"A focused daily and weekly planner for subjects, saved progress, backlog and daily review.","img":"https://screenshot2.lovable.dev/lovp_4pq3wm2vxg9t98ksdnwkfka42e/e039e3980f1ab6f67e0148b32a481a1f_1795393284682.png"},{"name":"Pixel Perfect Clone","tag":"Laboratory management","desc":"A role-based laboratory management system with staff workflows, database-backed records and a frosted-glass interface.","img":"https://screenshot2.lovable.dev/lovp_4h4csg1jx388b9nz1pd4q26qk3/4be1605e1f626c2d2e9d4b324718ab41_1792439649635.png"}];
   if(document.querySelector('.project-gallery')){
     const overlay=document.createElement('div');overlay.className='project-overlay';overlay.innerHTML='<div class="project-dialog"><button class="project-dialog-close" type="button" aria-label="Close">×</button><div class="project-dialog-inner"><img class="project-dialog-image" alt=""><div class="project-dialog-copy"><div class="project-dialog-kicker"></div><h2></h2><p></p><div class="project-dialog-count"></div></div></div></div>';document.body.appendChild(overlay);
-    const close=()=>overlay.classList.remove('open');overlay.querySelector('.project-dialog-close').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-    function show(idx,mode){const p=projects[idx];if(!p)return;overlay.querySelector('.project-dialog-image').src=p.img;overlay.querySelector('.project-dialog-image').alt=p.name+' screenshot';overlay.querySelector('.project-dialog-kicker').textContent=mode==='about'?'Project profile':'Screenshot gallery';overlay.querySelector('h2').textContent=p.name;overlay.querySelector('.project-dialog-copy p').textContent=p.desc;overlay.querySelector('.project-dialog-count').textContent='Latest available screenshot';overlay.classList.add('open');}
-    document.querySelectorAll('[data-about]').forEach(b=>b.addEventListener('click',()=>show(Number(b.dataset.about),'about')));
-    document.querySelectorAll('[data-gallery]').forEach(b=>b.addEventListener('click',()=>show(Number(b.dataset.gallery),'gallery')));
+    const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';};overlay.setAttribute('aria-hidden','true');overlay.querySelector('.project-dialog-close').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+    function show(idx,mode){
+      const p=projects[idx];if(!p)return;
+      overlay.querySelector('.project-dialog-image').src=p.img;
+      overlay.querySelector('.project-dialog-image').alt=p.name+' screenshot';
+      overlay.querySelector('.project-dialog-kicker').textContent=currentLanguage==='ar'?(mode==='about'?'عن المشروع':'معرض لقطات الشاشة'):(mode==='about'?'Project profile':'Screenshot gallery');
+      overlay.querySelector('h2').textContent=p.name;
+      overlay.querySelector('.project-dialog-copy p').textContent=p.desc;
+      overlay.querySelector('.project-dialog-count').textContent=currentLanguage==='ar'?'أحدث لقطة شاشة متاحة':'Latest available screenshot';
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    const gallery=document.querySelector('.project-gallery');
+    if(gallery)gallery.addEventListener('click',event=>{
+      const about=event.target.closest('[data-about]');
+      const screenshots=event.target.closest('[data-gallery]');
+      if(about)show(Number(about.dataset.about),'about');
+      else if(screenshots)show(Number(screenshots.dataset.gallery),'gallery');
+    });
+    const closeOverlay=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';};
   }
   const form=document.getElementById('contact-form');
   if(form)form.addEventListener('submit',e=>{
